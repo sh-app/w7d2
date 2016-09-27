@@ -1,9 +1,13 @@
 import React from 'react';
 import ConnectedSynth from './synth/synth_container';
+import ConnectedRecorder from './recorder/recorder_container';
 
 const App = () => {
   return (
-    <ConnectedSynth/>
+    <div>
+      <ConnectedSynth/>
+      <ConnectedRecorder/>
+    </div>
   );
 };
 

@@ -7,7 +7,7 @@ export default function tracksReducer(state={},action){
   switch (action.type) {
 
     case TracksConstants.START_RECORDING:
-      currTrackID++;
+      currTrackId++;
       let deepCopy1 = merge({}, state);
       let newTrack = {
         id: currTrackId,
