@@ -1,6 +1,5 @@
-
-const TONES = {
-  A4: 440,
+export const TONES = {
+  A4: 440.00,
   B4: 493.88,
   C5: 523.25,
   D5: 587.33,
@@ -8,10 +7,5 @@ const TONES = {
   F5: 698.46,
   G5: 783.99,
 };
-
-const NOTE_NAMES = Object.keys(TONES);
-
-
-
-module.exports[TONES] = TONES;
-module.exports[NOTE_NAMES] = NOTE_NAMES;
+//adding notes requires updating validKeys in notes_reducer.js
+export const NOTE_NAMES = Object.keys(TONES);

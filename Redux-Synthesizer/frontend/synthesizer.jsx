@@ -1,19 +1,14 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const Note = require('./util/note');
-import { configureStore } from './store/store.js';
+import  Note  from './util/note';
+import  configureStore  from './store/store.js';
+import Root from './components/root';
 
 
 let store = configureStore();
+console.log(store.getState());
 
-const App = () => {
-  return (
-    <p>
-      React loaded!
-    </p>
-  );
-};
 
 document.addEventListener("DOMContentLoaded", ()=> {
-  ReactDOM.render(<App/>, document.getElementById("root"));
+  ReactDOM.render(<Root store={store}/>, document.getElementById("root"));
 });

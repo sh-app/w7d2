@@ -1,33 +1,25 @@
-import { NotesConstants } from '../actions/notes_reducer';
-import { NOTE_NAMES } from '../util/tones';
+import  { NotesConstants } from '../actions/notes_actions.js';
+import { NOTE_NAMES } from '../util/tones.js';
 
 export default function notesReducer(state=[], action) {
   switch (action.type) {
 
-    case KEY_PRESSED:
-      if (state.includes(action.key) && validKeys.includes(action.key)) {
+    case NotesConstants.KEY_PRESSED:
+      if (state.includes(action.key) ) {
         return state;
-      } else {
-        return state.push(key).slice();
       }
+      let newState =  state.slice();
+      newState.push(action.key);
+      return newState;
 
-    case KEY_RELEASED:
-      if (state.includes(action.key) && validKeys.includes(action.key)) {
+    case NotesConstants.KEY_RELEASED:
+      if (state.includes(action.key) ) {
         let idx = state.indexOf(action.key);
-        return state.slice(0,idx).concat(state.slice(idx));
-      } else {
-        return state;
+        return state.slice(0,idx).concat(state.slice(idx+1));
       }
+      return state;
 
     default:
      return state;
   }
-}
-
-let validKeys = ['a','s','d','f','g','h','j','k'];
-
-let keyMap = {};
-
-for(let i=0; i<validKeys.length; i++){
-  keyMap[validKeys[i]] = NOTE_NAMES[i];
 }
